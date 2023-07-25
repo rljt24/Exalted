@@ -1,3 +1,4 @@
+import Attributes from "./components/Attributes";
 import EssanceAndWillpower from "./components/EssanceAndWillpower";
 import BasicInfo from "./components/basicInfo";
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <BasicInfo />
       <EssanceAndWillpower />
+      <Attributes />
     </>
   );
 }

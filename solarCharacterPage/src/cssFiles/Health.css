@@ -1,0 +1,50 @@
+.squareSlash {
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(45deg, transparent 45%, black 45%, black 55%, transparent 55%);
+    /* background: linear-gradient(-45deg, transparent 45%, black 45%, black 55%, transparent 55%); */
+    border: solid 3px black;
+
+  }
+
+  .squareX {
+    width: 25px;
+    height: 25px;
+    border: solid 3px black;
+    position: relative;
+    margin-right: 5px;
+  }
+
+  .squareX::before,
+  .squareX::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+  .squareX::before {
+    background: linear-gradient(45deg, transparent 45%, black 45%, black 55%, transparent 55%);
+  }
+  
+  .squareX::after {
+    background: linear-gradient(135deg, transparent 45%, black 45%, black 55%, transparent 55%);
+  }
+
+  .squareGood {
+    width: 25px;
+    height: 25px;
+    border: solid 3px black;
+  }
+
+  .spaceOut {
+    display: flex;
+  }
+
+  .damageLevelTitle {
+    width: 25px;
+    height: 25px;
+    text-align: center;
+  }

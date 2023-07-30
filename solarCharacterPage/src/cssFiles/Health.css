@@ -1,22 +1,27 @@
 .squareSlash {
-    width: 25px;
-    height: 25px;
-    background: linear-gradient(45deg, transparent 45%, black 45%, black 55%, transparent 55%);
-    /* background: linear-gradient(-45deg, transparent 45%, black 45%, black 55%, transparent 55%); */
-    border: solid 3px black;
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    black 45%,
+    black 55%,
+    transparent 55%
+  );
+  /* background: linear-gradient(-45deg, transparent 45%, black 45%, black 55%, transparent 55%); */
+  border: solid 3px black;
+}
 
-  }
+.squareX {
+  width: 25px;
+  height: 25px;
+  border: solid 3px black;
+  position: relative;
+  margin-right: 5px;
+}
 
-  .squareX {
-    width: 25px;
-    height: 25px;
-    border: solid 3px black;
-    position: relative;
-    margin-right: 5px;
-  }
-
-  .squareX::before,
-  .squareX::after {
+.squareX::before,
+.squareX::after {
   content: "";
   position: absolute;
   top: 0;
@@ -25,26 +30,45 @@
   height: 100%;
 }
 
-  .squareX::before {
-    background: linear-gradient(45deg, transparent 45%, black 45%, black 55%, transparent 55%);
-  }
-  
-  .squareX::after {
-    background: linear-gradient(135deg, transparent 45%, black 45%, black 55%, transparent 55%);
-  }
+.squareX::before {
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    black 45%,
+    black 55%,
+    transparent 55%
+  );
+}
 
-  .squareGood {
-    width: 25px;
-    height: 25px;
-    border: solid 3px black;
-  }
+.squareX::after {
+  background: linear-gradient(
+    135deg,
+    transparent 45%,
+    black 45%,
+    black 55%,
+    transparent 55%
+  );
+}
 
-  .spaceOut {
-    display: flex;
-  }
+.squareGood {
+  width: 25px;
+  height: 25px;
+  border: solid 3px black;
+}
 
-  .damageLevelTitle {
-    width: 100px;
-    height: 25px;
-    text-align: center;
-  }
+.squareBad {
+  width: 25px;
+  height: 25px;
+  border: solid 3px black;
+  background-color: red;
+}
+
+.spaceOut {
+  display: flex;
+}
+
+.damageLevelTitle {
+  width: 100px;
+  height: 25px;
+  text-align: center;
+}

@@ -16,7 +16,10 @@ function HealthButton({ levelsOfHealth }: { levelsOfHealth: HealthLevel[] }) {
             {typesOfDamage.map((td) => (
                <option value={td}>{td}</option> 
             ))}
-            </select>
+            </select><br></br>
+            <label>Amount of damage</label>
+            <input type="number"></input><br></br>
+            <button type="submit">Enter</button>
         </form>
     </div>
   );

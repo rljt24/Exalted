@@ -41,7 +41,7 @@ function Health() {
       ))}
       </div>
       <div>
-        <HealthButton />
+        <HealthButton levelsOfHealth = {levelsOfHealth}/>
       </div>
       </div>
     </>

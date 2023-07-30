@@ -1,25 +1,55 @@
 import "../cssFiles/Health.css"
+import React from "react";
+
+const levelsOfHealth: {healthLevel: string, damageType: string[]}[] = [
+    {
+        healthLevel: '0', 
+        damageType: ['bashing', 'bashing']
+    }, 
+    {
+        healthLevel: '-1',
+        damageType: ['none', 'none']
+    },
+    {
+        healthLevel:'-2',
+        damageType: ['none', 'none']
+    }, 
+    {
+        healthLevel: '-4',
+        damageType: ['none']
+    },
+    {
+        healthLevel: 'incapacitated',
+        damageType: ['none']
+    }
+]; 
 
 function Health(){
-    const typesOfDamage: string[] = ["Bashing", "Leathal", "Agrivated"];
-    const levelsOfHealth: number[] = [2, 2, 2, 1, 1]; // [0, -1, -2 , -4, incapacitated]
-    const levelsOfDamage: number[] = [0, 0, 0]; // [Bashing, Leathal, Agrivated]
 
     return (
         <>
-        <div className="spaceOut">
-            <div className="damageLevelTitle">0</div>
-            <div className="squareX"></div>
-            <div className="squareX"></div>
-            <div className="squareX"></div>
+        {levelsOfHealth.map(({healthLevel, damageType}) => (
+            <div className="spaceOut">
+                <div className="damageLevelTitle">{healthLevel}</div>
+                {damageType.map((type, index) => (
+                    <ChooseDamage key={index} damageType={type} />
+                ))}
             </div>
-        <div className="spaceOut">
-            <div className="damageLevelTitle">-1</div>
-            <div className="squareX"></div>
-            <div className="squareGood"></div>
-        </div>
+        ))}
         </>
     )
+}
+
+const ChooseDamage: React.FC<{damageType: string}> = ({damageType}) => {
+   if(damageType === 'agrivated'){
+    return <div className="squareBad"></div>;
+   } else if(damageType === 'lethal'){
+    return <div className="squareX"></div>;
+   } else if(damageType === 'bashing'){
+    return <div className="squareSlash"></div>;
+   } else if(damageType === 'none'){
+    return <div className="squareGood"></div>;
+   }
 }
 
 export default Health;

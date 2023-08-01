@@ -49,11 +49,11 @@ function Health() {
 }
 
 const ChooseDamage: React.FC<{ damageType: string }> = ({ damageType }) => {
-  if (damageType === "agrivated") {
+  if (damageType === "Agrivated") {
     return <div className="squareBad"></div>;
-  } else if (damageType === "lethal") {
+  } else if (damageType === "Lethal") {
     return <div className="squareX"></div>;
-  } else if (damageType === "bashing") {
+  } else if (damageType === "Bashing") {
     return <div className="squareSlash"></div>;
   } else if (damageType === "none") {
     return <div className="squareGood"></div>;

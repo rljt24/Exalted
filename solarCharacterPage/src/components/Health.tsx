@@ -2,6 +2,11 @@ import "../cssFiles/Health.css";
 import React, { useState } from "react";
 import HealthButton from "./HealthButtons";
 
+type HealthLevel = {
+    healthLevel: string;
+    damageType: string[];
+  };
+
 function Health() {
     
     let [levelsOfHealth, setLevelsOfHealth] = useState([
@@ -27,6 +32,10 @@ function Health() {
         },
       ]);
 
+    const updateLevelsOfHealth = (newData:HealthLevel[]) => {
+        setLevelsOfHealth(newData);
+    }
+
   return (
     <>
     <div className="spaceOut">
@@ -41,7 +50,7 @@ function Health() {
       ))}
       </div>
       <div>
-        <HealthButton levelsOfHealth = {levelsOfHealth}/>
+        <HealthButton levelsOfHealth = {updateLevelsOfHealth}/>
       </div>
       </div>
     </>

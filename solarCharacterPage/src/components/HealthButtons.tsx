@@ -28,12 +28,53 @@ function HealthButton({ levelsOfHealth, updateLevelsOfHealth }: HealthProps) {
   ) {
     e.preventDefault;
     let updatedData: HealthLevel[] = newData;
-    for(let i=0; i < updatedData[0].damageTypePerLevel.length; i++){
-      updatedData[0].damageTypePerLevel[i] = dT;
+    let count: number = 0;
+    if(dT === damageTypes[1]){
+      outerloop:while(count < dA){
+        for(let i=0; i<updatedData.length;i++){
+          for(let j=0; j<updatedData[i].damageTypePerLevel.length; j++){
+            if(updatedData[i].damageTypePerLevel[j] === damageTypes[0]){
+              updatedData[i].damageTypePerLevel[j] = dT;
+              count++;
+              if(count === dA){
+                break outerloop;
+              }
+              if(updatedData[i].healthLevel === '-4'){
+                break outerloop;
+              }
+            }
+          }
+        }
+      }
+      outerloop2:while(count < dA){
+        for(let k=0; k < updatedData.length; k++){
+          for(let x=0; x < updatedData[k].damageTypePerLevel.length; x++){
+            if(updatedData[k].damageTypePerLevel[x] === damageTypes[0] || updatedData[k].damageTypePerLevel[x] == damageTypes[1]){
+              updatedData[k].damageTypePerLevel[x] = damageTypes[2];
+              count++;
+              if(count === dA){
+                break outerloop2;
+              }
+              if(updatedData[k].healthLevel === '-4'){
+                break outerloop2;
+              }
+            }
+          }
+        }
+      }
+      lastLoop:while(count<dA){
+        if(dA-count === 1){
+          updatedData[4].damageTypePerLevel[0] = damageTypes[1];
+          break lastLoop;
+        }
+        if(dA-count >= 2){
+          updatedData[4].damageTypePerLevel[0] = damageTypes[2];
+          break lastLoop;
+        }
+      }
     }
-    console.log(updatedData)
+
     setNewData(updatedData);
-    console.log(newData);
     updateLevelsOfHealth(newData);
   }
 

@@ -2,55 +2,58 @@ import "../cssFiles/Health.css";
 import React, { useState } from "react";
 import HealthButton from "./HealthButtons";
 
-type HealthLevel = {
+export interface HealthLevel {
     healthLevel: string;
-    damageType: string[];
+    damageTypePerLevel: string[];
   };
+
+export const damageTypes: string[] = ['None', 'Bashing', 'Lethal', 'Aggravated'];
 
 function Health() {
     
-    let [levelsOfHealth, setLevelsOfHealth] = useState([
-        {
-          healthLevel: "0",
-          damageType: ["none", "none"],
-        },
-        {
-          healthLevel: "-1",
-          damageType: ["none", "none"],
-        },
-        {
-          healthLevel: "-2",
-          damageType: ["none", "none"],
-        },
-        {
-          healthLevel: "-4",
-          damageType: ["none"],
-        },
-        {
-          healthLevel: "incapacitated",
-          damageType: ["none"],
-        },
-      ]);
+  const [levelsOfHealth, setLevelsOfHealth] = useState([
+    {
+      healthLevel: "0",
+      damageTypePerLevel: [damageTypes[0], damageTypes[0]],
+    },
+    {
+      healthLevel: "-1",
+      damageTypePerLevel: [damageTypes[0], damageTypes[0]],
+    },
+    {
+      healthLevel: "-2",
+      damageTypePerLevel: [damageTypes[0], damageTypes[0]],
+    },
+    {
+      healthLevel: "-4",
+      damageTypePerLevel: [damageTypes[0]],
+    },
+    {
+      healthLevel: "Incapacitated",
+      damageTypePerLevel: [damageTypes[0]],
+    },
+  ]);
 
-    const updateLevelsOfHealth = (newData:HealthLevel[]) => {
-        setLevelsOfHealth(newData);
-    }
+  const updateLevelsOfHealth = (newData: HealthLevel[]) => {
+    console.log(newData);
+    setLevelsOfHealth([...newData]);
+  }
 
   return (
     <>
     <div className="spaceOut">
     <div>
-      {levelsOfHealth.map(({ healthLevel, damageType }) => (
+      {levelsOfHealth.map(({ healthLevel, damageTypePerLevel }) => (
         <div className="spaceOut">
           <div className="damageLevelTitle">{healthLevel}</div>
-          {damageType.map((type, index) => (
+          {damageTypePerLevel.map((type, index) => (
             <ChooseDamage key={index} damageType={type} />
           ))}
         </div>
       ))}
       </div>
       <div>
-        <HealthButton levelsOfHealth = {updateLevelsOfHealth}/>
+        <HealthButton levelsOfHealth= {levelsOfHealth} updateLevelsOfHealth= {updateLevelsOfHealth}/>
       </div>
       </div>
     </>
@@ -58,13 +61,13 @@ function Health() {
 }
 
 const ChooseDamage: React.FC<{ damageType: string }> = ({ damageType }) => {
-  if (damageType === "Agrivated") {
+  if (damageType === damageTypes[3]) {
     return <div className="squareBad"></div>;
-  } else if (damageType === "Lethal") {
+  } else if (damageType === damageTypes[2]) {
     return <div className="squareX"></div>;
-  } else if (damageType === "Bashing") {
+  } else if (damageType === damageTypes[1]) {
     return <div className="squareSlash"></div>;
-  } else if (damageType === "none") {
+  } else if (damageType === damageTypes[0]) {
     return <div className="squareGood"></div>;
   }
 };

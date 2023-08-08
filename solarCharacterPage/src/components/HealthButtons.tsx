@@ -103,7 +103,6 @@ function HealthButton({ levelsOfHealth, updateLevelsOfHealth }: HealthProps) {
         }
       }
     }
-
     setNewData(updatedData);
     updateLevelsOfHealth(newData);
   }

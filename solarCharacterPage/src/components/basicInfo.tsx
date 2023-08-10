@@ -1,3 +1,5 @@
+import  {caste}  from "./Abilities"
+
 function BasicInfo(){
     return(
         <>
@@ -5,7 +7,11 @@ function BasicInfo(){
             <label>Character Name</label>
             <input></input><br></br>
             <label>Caste</label>
-            <input></input><br></br>
+            <select>
+                {caste.map((cast) => (
+                  <option value={cast}>{cast}</option>  
+                ))}
+            </select><br></br>
             <label>Experience</label>
             <input></input>
         </form>

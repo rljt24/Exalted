@@ -1,10 +1,10 @@
 import { useState } from "react";
 import React from "react";
 
+export const caste: string[] = ["Dawn", "Zenith", "Twilight", "Night", "Eclipse"];
+
 function Abilities() {
     const startState: boolean[] = Array.from({ length: 10 }, () => false);
-
-    const caste: string[] = ["Dawn", "Zenith", "Twilight", "Night", "Eclipse"];
 
     const abilityList: string[][] = [
         ["Archery", "Martial Arts", "Melee", "Throw", "War"],

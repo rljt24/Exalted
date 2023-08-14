@@ -1,4 +1,4 @@
-import { caste } from "./Abilities";
+import { castes } from "./Abilities";
 import { useState } from "react";
 import Abilities from "./Abilities";
 import Attributes from "./Attributes";
@@ -20,7 +20,7 @@ function BasicInfo() {
         <br></br>
         <label>Caste</label>
         <select onChange={(e) => handleCaste(e.target.value)}>
-          {caste.map((cast) => (
+          {castes.map((cast) => (
             <option value={cast}>{cast}</option>
           ))}
         </select>
